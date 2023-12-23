@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Clear GYM Tracker</string>
+    <string name="title_activity_main">Clear GYM Tracker</string>
+    <string name="package_name">com.wracce.gymtracker</string>
+    <string name="custom_url_scheme">com.wracce.gymtracker</string>
+</resources>
