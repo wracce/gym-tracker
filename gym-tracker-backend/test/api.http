@@ -1,0 +1,53 @@
+### LOGIN
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin"
+}
+
+### REGISTER 1
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "userName": "admin2",
+  "email": "pupa@lupa.com1",
+  "password": "admin",
+  "fistName": "Roman",
+  "lastName": "Expert",
+  "birth_date": "Profi",
+  "gender": "male"
+}
+
+###
+
+GET http://localhost:3000/users
+###
+
+
+
+GET http://localhost:3000/users/1
+
+###
+
+
+GET http://localhost:3000/auth/test
+Set-Cookie: connect.sid=s%3AyeJtVxgwJ5NAz3nz0MwwWCLEjz8SoHAM.Jh0dgL1alvVZVojBiKTBVBpgyMo5z9VZLGS6YR%2BuB%2B0; Path=/; HttpOnly
+###
+
+POST http://localhost:3000/user
+content-type: application/json
+
+{
+  "userName": "2",
+  "email": "string",
+  "password": "1",
+  "fistName": "1",
+  "lastName": "1",
+  "birth_date": "1",
+  "gender": "1"
+}
+
+
