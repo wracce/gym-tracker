@@ -9,12 +9,12 @@ import {
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import TodayIcon from '@mui/icons-material/Today';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
 type Props = {};
 
 export function HomeLayout({}: Props) {
   const location = useLocation();
-  console.log(location.pathname);
 
   const NavigationBar = (
     <BottomNavigation value={location.pathname}>
@@ -38,6 +38,13 @@ export function HomeLayout({}: Props) {
         label="Журнал"
         value="/home/journal"
         icon={<TodayIcon />}
+      />
+            <BottomNavigationAction
+        component={Link}
+        to="/home/profile"
+        label="Профиль"
+        value="/home/profile"
+        icon={<AccountBoxIcon />}
       />
     </BottomNavigation>
   );

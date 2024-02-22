@@ -5,6 +5,8 @@ import { WorkoutsPage } from 'pages/workouts';
 import { JournalPage } from 'pages/journal';
 import { ExercisesPage } from 'pages/exercises';
 import { BaseLayout } from 'pages/layouts/base-layout';
+import { ProfilePage } from 'pages/profile';
+import { RegisterPage } from 'pages/register';
 
 const router = createBrowserRouter([
   {
@@ -13,6 +15,10 @@ const router = createBrowserRouter([
       {
         path: 'login',
         element: <LoginPage />,
+      },
+      {
+        path: 'register',
+        element: <RegisterPage />,
       },
       {
         path: 'home',
@@ -29,6 +35,10 @@ const router = createBrowserRouter([
           {
             path: 'workouts',
             element: <WorkoutsPage />,
+          },
+          {
+            path: 'profile',
+            element: <ProfilePage />,
           },
         ],
       },

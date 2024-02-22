@@ -14,13 +14,13 @@ export class User extends BaseEntity {
   password: string;
 
   @Column()
-  fistName: string;
+  firstName: string;
 
   @Column()
   lastName: string;
 
   @Column()
-  birth_date: string;
+  birthDate: string;
 
   @Column()
   gender: Gender;

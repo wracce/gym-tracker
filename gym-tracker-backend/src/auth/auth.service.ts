@@ -3,6 +3,7 @@ import { Session } from 'src/common/models/session.type';
 import { User } from 'src/users/entities/user.entity';
 import { UsersService } from 'src/users/users.service';
 import { Response } from 'express';
+import * as bcrypt from 'bcrypt';
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
 
 @Injectable()
@@ -11,10 +12,10 @@ export class AuthService {
 
   async login(username: string, pass: string, session: Session): Promise<User> {
     const user = await this.usersService.findOne(username);
+    if (!user) throw new UnauthorizedException();
 
-    if (user?.password !== pass) {
-      throw new UnauthorizedException();
-    }
+    const isValid = await bcrypt.compareSync(pass, user?.password);
+    if (!isValid) throw new UnauthorizedException();
 
     session.userID = user.id;
 
@@ -22,14 +23,10 @@ export class AuthService {
   }
 
   async register(createUserDto: CreateUserDto, session: Session): Promise<User> {
-    const user = await this.usersService.create(createUserDto);
+    const hashPassword = await bcrypt.hashSync(createUserDto.password, +process.env.SALT_ROUNDS);
+    createUserDto.password = hashPassword;
 
-    if (!user) {
-      throw new HttpException(
-        'User with this username or email already exists',
-        HttpStatus.CONFLICT,
-      );
-    }
+    const user = await this.usersService.create(createUserDto);
 
     session.userID = user.id;
 
